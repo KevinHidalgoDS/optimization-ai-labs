@@ -1,0 +1,98 @@
+site_name: Optimización e Inteligencia Artificial
+site_description: Documentación y laboratorio de Interacción Humano Computador
+site_author: Milena Castaño, Daniela Torres, Sebastian Higuita, Sebastian Sanchez, Kevin Hidalgo
+copyright: "Copyright &copy; 2026 Milena Castaño, Daniela Torres, Sebastian Higuita, Sebastian Sanchez, Kevin Hidalgo - Universidad Nacional de Colombia"
+
+# Enlace al repositorio (crea el botón directo en la cabecera)
+repo_name: KevinHidalgoDS/optimizacion-ai-labs
+repo_url: https://github.com/KevinHidalgoDS/optimizacion-ai-labs
+
+# -----------------------------------------------------------------------------
+# TEMA
+# -----------------------------------------------------------------------------
+
+theme:
+#  name: dracula
+#  logo: img/dracula.png
+#  favicon: img/favicon.ico
+  name: material
+  language: es
+  palette:
+    # Modo claro
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Cambiar a modo oscuro
+    # Modo oscuro
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Cambiar a modo claro
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+plugins:
+  - search:
+      lang: es
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [.]
+          options:
+            docstring_style: google # Compatible con formato Google o NumPy
+            members_order: source
+            show_root_heading: true
+            show_source: true
+            show_bases: true
+            show_if_no_docstring: true
+            separate_signature: true
+            merge_init_into_class: true
+            show_signature_annotations: true
+            # show_attributes: false # <-- Oculta todas las variables y constantes
+            filters:
+              - "!^_[^_]"             # (Por defecto) Oculta variables privadas con un solo guion bajo
+              - "!^__[a-zA-Z0-9_]+__$" # Oculta todas las variables dunder (__version__, __authors__, etc.)
+  - mkdocs-jupyter:
+      include_source: true
+
+# -----------------------------------------------------------------------------
+# EXTENSIONES DE MARKDOWN
+# -----------------------------------------------------------------------------
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - tables
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.inlinehilite
+  - pymdownx.arithmatex:
+      generic: true
+  - footnotes
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+nav:
+  - Inicio: index.md

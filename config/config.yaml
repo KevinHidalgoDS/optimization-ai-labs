@@ -1,0 +1,23 @@
+# Configuración central del proyecto — rutas, parámetros y opciones del pipeline
+
+project:
+  name: "optimizacion-ia-labs"
+  version: "0.2.0"
+  seed: 42
+
+paths:
+  data:
+    raw: "data/raw/"
+    interim: "data/interim/"
+    processed: "data/processed/"
+    external: "data/external/"
+  models:
+    trained: "models/trained/"
+    checkpoints: "models/checkpoints/"
+  reports:
+    figures: "reports/figures/"
+
+environment:
+  nombre: "PRB"  # PRD
+  entorno: "local"  # nube
+  ide: "PyCharm"
