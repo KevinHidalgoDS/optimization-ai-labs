@@ -1,0 +1,12 @@
+[run]
+omit =
+    ./.venv/*
+    ./docs/*
+    */__init__.py  # Ejemplo para excluir archivos __init__.py en cualquier directorio
+
+[report]
+omit =
+    ./.venv/*
+    ./docs/*
+    ./tests/*
+    *__init__.py

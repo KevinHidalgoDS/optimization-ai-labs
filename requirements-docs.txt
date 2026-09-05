@@ -1,0 +1,9 @@
+# install basic requirements
+-r requirements.txt
+
+# docs
+mkdocs
+mkdocs-dracula-theme
+mkdocs-jupyter
+mkdocs-material
+mkdocstrings-python
