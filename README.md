@@ -209,6 +209,13 @@ Para mantener la integridad del código al trabajar en equipo:
    (`black . && flake8 .`).
 4. Abre un Pull Request (PR) y solicita revisión de al menos un compañero antes del merge.
 
+```text
+feature/<nombre-breve> (Nuevas características o modelos).
+bugfix/<nombre-breve> (Correcciones en desarrollo).
+hotfix/<nombre-breve> (Correcciones críticas en main).
+release/vX.Y.Z (Preparación de pases a producción).
+```
+
 ---
 
 ## 📄 Licencia y Atribuciones
