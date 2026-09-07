@@ -1,0 +1,986 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentación y laboratorio de Interacción Humano Computador">
+      
+      
+        <meta name="author" content="Milena Castaño, Daniela Torres, Sebastian Higuita, Sebastian Sanchez, Kevin Hidalgo">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Tutorial markdown - Optimización e Inteligencia Artificial</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#h1-heading" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="Optimización e Inteligencia Artificial" class="md-header__button md-logo" aria-label="Optimización e Inteligencia Artificial" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Optimización e Inteligencia Artificial
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tutorial markdown
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/KevinHidalgoDS/optimizacion-ai-labs" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    KevinHidalgoDS/optimizacion-ai-labs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Optimización e Inteligencia Artificial" class="md-nav__button md-logo" aria-label="Optimización e Inteligencia Artificial" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Optimización e Inteligencia Artificial
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/KevinHidalgoDS/optimizacion-ai-labs" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    KevinHidalgoDS/optimizacion-ai-labs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#h2-heading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        h2 Heading
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="h2 Heading">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#h3-heading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        h3 Heading
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="h3 Heading">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#h4-heading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        h4 Heading
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="h4 Heading">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#h5-heading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        h5 Heading
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="h5 Heading">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#h6-heading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        h6 Heading
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#horizontal-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Horizontal Rules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#emphasis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Emphasis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blockquotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blockquotes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lists
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Links
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Images
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#emojies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Emojies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hide-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hide details
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mathematical-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mathematical formulas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mind-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mind maps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gantt-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gantt charts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timing-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        timing charts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        charts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#graphviz-rendering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        graphviz rendering
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flowchart
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plantuml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        plantuml
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<ul>
+<li><a href="#h1-heading">h1 Heading</a></li>
+<li><a href="#h2-heading">h2 Heading</a><ul>
+<li><a href="#h3-heading">h3 Heading</a></li>
+<li><a href="#h4-heading">h4 Heading</a><ul>
+<li><a href="#h5-heading">h5 Heading</a></li>
+<li><a href="#h6-heading">h6 Heading</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#horizontal-rules">Horizontal Rules</a></li>
+<li><a href="#emphasis">Emphasis</a></li>
+<li><a href="#blockquotes">Blockquotes</a></li>
+<li><a href="#lists">Lists</a></li>
+<li><a href="#code">Code</a></li>
+<li><a href="#tables">Tables</a></li>
+<li><a href="#links">Links</a></li>
+<li><a href="#images">Images</a></li>
+<li><a href="#emojies">Emojies</a></li>
+<li><a href="#task">Task</a></li>
+<li><a href="#hide-details">Hide details</a></li>
+<li><a href="#mathematical-formulas">mathematical formulas</a></li>
+<li><a href="#mind-maps">mind maps</a></li>
+<li><a href="#gantt-charts">Gantt charts</a></li>
+<li><a href="#timing-charts">timing charts</a></li>
+<li><a href="#charts">charts</a></li>
+<li><a href="#graphviz-rendering">graphviz rendering</a></li>
+<li><a href="#flowchart">Flowchart</a></li>
+<li><a href="#plantuml">plantuml</a></li>
+</ul>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non nisi arcu. Nunc mollis arcu eget urna placerat suscipit. Nulla facilisi. Sed sollicitudin faucibus sem, lacinia interdum eros pretium quis. Suspendisse eget lobortis ex, non placerat massa. Maecenas ultrices arcu ut consequat hendrerit. Duis mollis metus id dignissim ullamcorper. Vestibulum tempus blandit turpis. Aliquam pharetra lacus tempor, venenatis enim non, mattis lorem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur convallis viverra pulvinar. Praesent sed dui luctus, laoreet lectus sit amet, ornare metus. Quisque scelerisque aliquam eros quis interdum. Morbi et ipsum vehicula, tincidunt ex et, suscipit erat. Quisque fringilla tortor sed odio placerat iaculis.</p>
+<hr />
+<h1 id="h1-heading">h1 Heading<a class="headerlink" href="#h1-heading" title="Permanent link">&para;</a></h1>
+<h2 id="h2-heading">h2 Heading<a class="headerlink" href="#h2-heading" title="Permanent link">&para;</a></h2>
+<h3 id="h3-heading">h3 Heading<a class="headerlink" href="#h3-heading" title="Permanent link">&para;</a></h3>
+<h4 id="h4-heading">h4 Heading<a class="headerlink" href="#h4-heading" title="Permanent link">&para;</a></h4>
+<h5 id="h5-heading">h5 Heading<a class="headerlink" href="#h5-heading" title="Permanent link">&para;</a></h5>
+<h6 id="h6-heading">h6 Heading<a class="headerlink" href="#h6-heading" title="Permanent link">&para;</a></h6>
+<h2 id="horizontal-rules">Horizontal Rules<a class="headerlink" href="#horizontal-rules" title="Permanent link">&para;</a></h2>
+<hr />
+<h2 id="emphasis">Emphasis<a class="headerlink" href="#emphasis" title="Permanent link">&para;</a></h2>
+<p><strong>This is bold text</strong></p>
+<p><strong>This is bold text</strong></p>
+<p><em>This is italic text</em></p>
+<p><em>This is italic text</em></p>
+<p>~~Strikethrough~~</p>
+<h2 id="blockquotes">Blockquotes<a class="headerlink" href="#blockquotes" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Blockquotes can also be nested...</p>
+<blockquote>
+<p>...by using additional greater-than signs right next to each other...</p>
+<blockquote>
+<p>...or with spaces between arrows.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="lists">Lists<a class="headerlink" href="#lists" title="Permanent link">&para;</a></h2>
+<p>Unordered</p>
+<ul>
+<li>Create a list by starting a line with <code>+</code>, <code>-</code>, or <code>*</code></li>
+<li>Sub-lists are made by indenting 2 spaces:<ul>
+<li>
+<p>Marker character change forces new list start:</p>
+<ul>
+<li>
+<p>Ac tristique libero volutpat at</p>
+</li>
+<li>
+<p>Facilisis in pretium nisl aliquet</p>
+</li>
+<li>
+<p>Nulla volutpat aliquam velit</p>
+</li>
+<li>Very easy!</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Ordered</p>
+<ol>
+<li>Lorem ipsum dolor sit amet</li>
+<li>Consectetur adipiscing elit</li>
+<li>Integer molestie lorem at massa</li>
+<li>You can use sequential numbers...</li>
+<li>...or keep all the numbers as <code>1.</code></li>
+</ol>
+<p>Start numbering with offset:</p>
+<ol>
+<li>foo</li>
+<li>bar</li>
+</ol>
+<h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
+<p>Inline <code>code</code></p>
+<p>Indented code</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>// Some comments
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>line 1 of code
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>line 2 of code
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>line 3 of code
+</span></code></pre></div>
+<p>Block code "fences"</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Sample text here...
+</span></code></pre></div>
+<p>Syntax highlighting</p>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">var</span><span class="w"> </span><span class="nx">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">bar</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">bar</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">};</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">(</span><span class="mf">5</span><span class="p">));</span>
+</span></code></pre></div>
+<h2 id="tables">Tables<a class="headerlink" href="#tables" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>data</td>
+<td>path to data files to supply the data that will be passed into templates.</td>
+</tr>
+<tr>
+<td>engine</td>
+<td>engine to be used for processing templates. Handlebars is the default.</td>
+</tr>
+<tr>
+<td>et</td>
+<td>extension to be used for dest files.</td>
+</tr>
+</tbody>
+</table>
+<p>Right aligned columns</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Option</th>
+<th style="text-align: right;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">data</td>
+<td style="text-align: right;">path to data files to supply the data that will be passed into templates.</td>
+</tr>
+<tr>
+<td style="text-align: right;">engine</td>
+<td style="text-align: right;">engine to be used for processing templates. Handlebars is the default.</td>
+</tr>
+<tr>
+<td style="text-align: right;">ext</td>
+<td style="text-align: right;">extension to be used for dest files.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/shuzijun/markdown-editor">link text</a></p>
+<h2 id="images">Images<a class="headerlink" href="#images" title="Permanent link">&para;</a></h2>
+<p><img alt="image" src="https://avatars.githubusercontent.com/u/27667179?s=48&amp;v=4" /></p>
+<h2 id="emojies">Emojies<a class="headerlink" href="#emojies" title="Permanent link">&para;</a></h2>
+<p>😄 😆 😵 😭 😰 😅  😢 😤 😍 😌
+👍 👎 💯 👏 🔔 🎁 ❓ 💣 ❤️ ☕️ 🌀 🙇 💋 🙏 💢</p>
+<h2 id="task">Task<a class="headerlink" href="#task" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[X] task 1</li>
+<li>[X] task 2</li>
+<li>[ ] task 3</li>
+</ul>
+<h2 id="hide-details">Hide details<a class="headerlink" href="#hide-details" title="Permanent link">&para;</a></h2>
+<details>
+<summary>Abstract</summary>
+Here are the details.
+</details>
+
+<h2 id="mathematical-formulas">mathematical formulas<a class="headerlink" href="#mathematical-formulas" title="Permanent link">&para;</a></h2>
+<p>Multiline formula block：</p>
+<div class="arithmatex">\[
+\frac{1}{
+\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{
+\frac25 \pi}} = 1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {
+1+\frac{e^{-6\pi}}
+{1+\frac{e^{-8\pi}}{1+\cdots}}
+}
+}
+\]</div>
+<p>Inline formula：</p>
+<p>formula <span class="arithmatex">\(a^2 + b^2 = \color{red}c^2\)</span></p>
+<h2 id="mind-maps">mind maps<a class="headerlink" href="#mind-maps" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>- demo
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>- Heading
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  - Emphasis
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  - Blockquotes
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  - Lists
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  - Code
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  - Tables
+</span></code></pre></div>
+<h2 id="gantt-charts">Gantt charts<a class="headerlink" href="#gantt-charts" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>gantt
+    title A Gantt Diagram
+    dateFormat  YYYY-MM-DD
+    section Section
+    A task           :a1, 2019-01-01, 30d
+    Another task     :after a1  , 20d
+    section Another
+    Task in sec      :2019-01-12  , 12d
+    another task      : 24d</code></pre>
+<h2 id="timing-charts">timing charts<a class="headerlink" href="#timing-charts" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>sequenceDiagram
+    Alice-&gt;&gt;John: Hello John, how are you?
+    loop Every minute
+        John--&gt;&gt;Alice: Great!
+    end</code></pre>
+<h2 id="charts">charts<a class="headerlink" href="#charts" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>{
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  "title": { "text": "30 day" },
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  "tooltip": { "trigger": "axis", "axisPointer": { "lineStyle": { "width": 0 } } },
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  "legend": { "data": [ "user"] },
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  "xAxis": [{
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>      "type": "category",
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>      "boundaryGap": false,
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>      "data": ["2019-05-08","2019-05-09","2019-05-10","2019-05-11","2019-05-12","2019-05-13","2019-05-14","2019-05-15","2019-05-16","2019-05-17","2019-05-18","2019-05-19","2019-05-20","2019-05-21","2019-05-22","2019-05-23","2019-05-24","2019-05-25","2019-05-26","2019-05-27","2019-05-28","2019-05-29","2019-05-30","2019-05-31","2019-06-01","2019-06-02","2019-06-03","2019-06-04","2019-06-05","2019-06-06","2019-06-07"],
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>      "axisTick": { "show": false },
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>      "axisLine": { "show": false }
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>  }],
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>  "yAxis": [{ "type": "value", "axisTick": { "show": false }, "axisLine": { "show": false }, "splitLine": { "lineStyle": { "color": "rgba(0, 0, 0, .38)", "type": "dashed" } } }],
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>  "series": [
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    {
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>      "name": "user", "type": "line", "smooth": true, "itemStyle": { "color": "#f1e05a" }, "areaStyle": { "normal": {} }, "z": 2,
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>      "data": ["31","33","30","23","16","29","23","37","41","29","16","13","39","23","38","136","89","35","22","50","57","47","36","59","14","23","46","44","51","43","0"]
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>    }
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>  ]
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>}
+</span></code></pre></div>
+<h2 id="graphviz-rendering">graphviz rendering<a class="headerlink" href="#graphviz-rendering" title="Permanent link">&para;</a></h2>
+<div class="language-graphviz highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">digraph</span><span class="w"> </span><span class="nt">finite_state_machine</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="na">rankdir</span><span class="p">=</span><span class="s">LR</span><span class="p">;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="na">size</span><span class="p">=</span><span class="s2">"8,5"</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="k">node</span><span class="w"> </span><span class="p">[</span><span class="na">shape</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">doublecircle</span><span class="p">];</span><span class="w"> </span><span class="nt">S</span><span class="p">;</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="k">node</span><span class="w"> </span><span class="p">[</span><span class="na">shape</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">point</span><span class="w"> </span><span class="p">];</span><span class="w"> </span><span class="nt">qi</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="k">node</span><span class="w"> </span><span class="p">[</span><span class="na">shape</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">circle</span><span class="p">];</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="nt">qi</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nt">S</span><span class="p">;</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="nt">S</span><span class="w">  </span><span class="o">-&gt;</span><span class="w"> </span><span class="nt">q1</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="na">label</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"a"</span><span class="w"> </span><span class="p">];</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="nt">S</span><span class="w">  </span><span class="o">-&gt;</span><span class="w"> </span><span class="nt">S</span><span class="w">  </span><span class="p">[</span><span class="w"> </span><span class="na">label</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"a"</span><span class="w"> </span><span class="p">];</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="nt">q1</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nt">S</span><span class="w">  </span><span class="p">[</span><span class="w"> </span><span class="na">label</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"a"</span><span class="w"> </span><span class="p">];</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="nt">q1</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nt">q2</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="na">label</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"ddb"</span><span class="w"> </span><span class="p">];</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="nt">q2</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nt">q1</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="na">label</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"b"</span><span class="w"> </span><span class="p">];</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">    </span><span class="nt">q2</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nt">q2</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="na">label</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"b"</span><span class="w"> </span><span class="p">];</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="flowchart">Flowchart<a class="headerlink" href="#flowchart" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>st=&gt;start: Start
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>op=&gt;operation: Your Operation
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>cond=&gt;condition: Yes or No?
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>e=&gt;end
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>st-&gt;op-&gt;cond
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>cond(yes)-&gt;e
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>cond(no)-&gt;op
+</span></code></pre></div>
+<h2 id="plantuml">plantuml<a class="headerlink" href="#plantuml" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>@startuml component
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>actor client
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>node app
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>database db
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>db -&gt; app
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>app -&gt; client
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>@enduml
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Milena Castaño, Daniela Torres, Sebastian Higuita, Sebastian Sanchez, Kevin Hidalgo - Universidad Nacional de Colombia
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
