@@ -1,0 +1,98 @@
+
+2026-10-09 23:22:09 [INFO] Módulo matplotlib cargado correctamente, gráficos habilitados.
+2026-10-09 23:22:11 [INFO] Constantes inicializadas correctamente: {'CLASES': ['sano', 'deriva', 'fallo_duro'], 'ROLLING_WINDOW': 5, 'FEATURES': ['lta_medido', 'ltb_medido', 'lt_residual', 'residual_roll_mean', 'residual_slope'], 'UMBRAL_BASELINE': 0.15, 'RF_PARAMS': {'n_estimators': 200, 'max_depth': 5, 'class_weight': 'balanced', 'random_state': 42}}
+2026-10-09 23:22:11 [INFO] ======================================================================
+2026-10-09 23:22:11 [INFO] DETECCIÓN DE ANOMALÍAS DE SENSOR — Simulador COP-05, PTAR Bello
+2026-10-09 23:22:11 [INFO] ======================================================================
+2026-10-09 23:22:11 [WARNING] ADVERTENCIA: dataset sintético — ver docstring del script antes de interpretar resultados.
+2026-10-09 23:22:11 [INFO] Iniciando carga de telemetría desde: ../data/raw/telemetria.csv
+2026-10-09 23:22:11 [INFO] Archivo cargado con 518 filas y 69 columnas
+2026-10-09 23:22:11 [INFO] Etiquetas de clase construidas correctamente
+2026-10-09 23:22:11 [INFO] Features adicionales calculadas: residual_roll_mean, residual_slope
+2026-10-09 23:22:11 [INFO] Telemetría cargada: 518 filas.
+2026-10-09 23:22:11 [INFO] Distribución de clases en toda la sesión: {'sano': 336, 'deriva': 170, 'fallo_duro': 12}
+2026-10-09 23:22:11 [INFO] Cargando episodios desde: ../data/raw/episodios.csv
+2026-10-09 23:22:11 [INFO] Archivo de episodios cargado con 4 registros
+2026-10-09 23:22:11 [INFO] Episodios reservados para prueba (nunca vistos en entrenamiento):
+2026-10-09 23:22:11 [INFO] 
+                    causa  inicio_t  fin_t
+Deriva gradual LT-051004A      1430   1930
+  Fallo medida LT-051004A      2230   2290
+2026-10-09 23:22:11 [INFO] Corte temporal definido: entrenamiento con t < 1430, prueba con t >= 1430
+2026-10-09 23:22:11 [INFO] Distribución de clases en train: {0: 216, 1: 70}
+2026-10-09 23:22:11 [INFO] Distribución de clases en test: {0: 120, 1: 100, 2: 12}
+2026-10-09 23:22:11 [WARNING] No todas las clases están presentes en el conjunto de entrenamiento
+2026-10-09 23:22:11 [WARNING] La clase 'fallo_duro' tiene pocas muestras (0) en entrenamiento
+2026-10-09 23:22:11 [INFO] Entrenamiento: 286 muestras — clases: {0: 216, 1: 70}
+2026-10-09 23:22:11 [INFO] Prueba:        232 muestras — clases: {0: 120, 1: 100, 2: 12}
+2026-10-09 23:22:11 [INFO] Entrenando RandomForest con parámetros: {'n_estimators': 200, 'max_depth': 5, 'class_weight': 'balanced', 'random_state': 42}
+2026-10-09 23:22:11 [INFO] Entrenamiento completado ✅
+2026-10-09 23:22:11 [INFO] Predicciones generadas
+2026-10-09 23:22:11 [INFO] 
+--- Reporte de clasificación RF ---
+              precision    recall  f1-score   support
+
+        sano       0.89      0.99      0.94       120
+      deriva       0.99      0.97      0.98       100
+  fallo_duro       0.00      0.00      0.00        12
+
+    accuracy                           0.93       232
+   macro avg       0.63      0.65      0.64       232
+weighted avg       0.89      0.93      0.91       232
+
+2026-10-09 23:22:11 [INFO] Matriz de confusión RF:
+[[119   1   0]
+ [  3  97   0]
+ [ 12   0   0]]
+2026-10-09 23:22:11 [INFO] Recall fallo_duro RF: 0.00
+2026-10-09 23:22:11 [INFO] Comparación binaria RF: baseline=0.71, modelo=0.87
+2026-10-09 23:22:11 [INFO] Métricas RF exportadas a metrics_rf.json
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1791606131.932413   28472 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1791606145.235315   28472 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+C:\Users\jair_\OneDrive\Documentos\Posgrado\Materias\Optimizacion IA\Trabajo Final\Repo\venv\Lib\site-packages\keras\src\layers\core\dense.py:100: UserWarning: Do not pass an `input_shape`/`input_dim` argument to a layer. When using Sequential models, prefer using an `Input(shape)` object as the first layer in the model instead.
+  super().__init__(activity_regularizer=activity_regularizer, **kwargs)
+I0000 00:00:1791606149.509907   28472 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-10-09 23:22:29 [INFO] Entrenando MLP con Keras/TensorFlow...
+2026-10-09 23:22:33 [INFO] Accuracy MLP: 0.89
+8/8 ━━━━━━━━━━━━━━━━━━━━ 0s 8ms/step 
+2026-10-09 23:22:33 [INFO] 
+--- Reporte de clasificación MLP ---
+              precision    recall  f1-score   support
+
+        sano       0.83      0.98      0.90       120
+      deriva       0.98      0.88      0.93       100
+  fallo_duro       0.00      0.00      0.00        12
+
+    accuracy                           0.89       232
+   macro avg       0.60      0.62      0.61       232
+weighted avg       0.85      0.89      0.87       232
+
+2026-10-09 23:22:33 [INFO] Matriz de confusión MLP:
+[[118   2   0]
+ [ 12  88   0]
+ [ 12   0   0]]
+2026-10-09 23:22:33 [INFO] Métricas MLP exportadas a metrics_mlp.json
+2026-10-09 23:22:33 [INFO] ======================================================================
+2026-10-09 23:22:33 [INFO] COMPARACIÓN AUTOMÁTICA DE MODELOS
+2026-10-09 23:22:33 [INFO] ======================================================================
+2026-10-09 23:22:33 [INFO] Recall fallo_duro RF: 0.00
+2026-10-09 23:22:33 [INFO] Accuracy RF (binario): 0.87
+2026-10-09 23:22:33 [INFO] Accuracy MLP (multiclase): 0.89
+2026-10-09 23:22:33 [INFO] 👉 El MLP tuvo mejor desempeño global en accuracy.
+2026-10-09 23:22:33 [INFO] Importancia de features (mayor a menor):
+2026-10-09 23:22:33 [INFO]   lt_residual          0.414
+2026-10-09 23:22:33 [INFO]   residual_slope       0.325
+2026-10-09 23:22:33 [INFO]   residual_roll_mean   0.170
+2026-10-09 23:22:33 [INFO]   ltb_medido           0.050
+2026-10-09 23:22:33 [INFO]   lta_medido           0.040
+2026-10-09 23:22:34 [INFO] Gráfico de importancia de features guardado en: outputs//feature_importance_sensores.png
+2026-10-09 23:22:34 [INFO] Gráfico residual vs clases guardado en: outputs//residual_vs_clases.png
+2026-10-09 23:22:34 [INFO] ======================================================================
+2026-10-09 23:22:34 [INFO] Pipeline verificado de punta a punta. El hallazgo sobre el fallo duro
+2026-10-09 23:22:34 [INFO] es real y esperado — no es un error del script. Para cubrir ese caso,
+2026-10-09 23:22:34 [INFO] un sistema real necesitaría una señal de disponibilidad de la medida
+2026-10-09 23:22:34 [INFO] además del residual (ver Sección 3.3 de la Propuesta de Transición a ML).
+2026-10-09 23:22:34 [INFO] ======================================================================
