@@ -46,8 +46,6 @@ PARAMS = {
 }
 
 
-
-
 def cargar_y_preparar(path_telemetria: str) -> pd.DataFrame:
     """
     Carga telemetría y construye etiquetas de 3 clases.
@@ -99,6 +97,7 @@ def cargar_y_preparar(path_telemetria: str) -> pd.DataFrame:
     logging.info(f"Distribución de clases: {tel['label'].value_counts().to_dict()}")
 
     return tel
+
 
 def dividir_train_test(tel: pd.DataFrame, path_episodios: str, n_episodios_prueba: int = 2):
     """
