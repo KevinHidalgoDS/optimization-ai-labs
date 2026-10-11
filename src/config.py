@@ -74,18 +74,6 @@ class Config(BaseModel):
     environment: VarsEnvironment
 
 
-def load_config(path: str = "config/config.yaml") -> Config:
-    try:
-        with open(path, "r", encoding="utf-8") as f:
-            raw = yaml.safe_load(f)
-    except FileNotFoundError:
-        ruta_config = Path(__file__).resolve().parent / "config.yaml"
-        with ruta_config.open("r", encoding="utf-8") as f:
-            raw = yaml.safe_load(f)
-    return Config(**raw)
-
-CONFIG = load_config()
-
 # -----------------------------------------------------------------------------
 # DIRECTORIOS LOCALES
 # -----------------------------------------------------------------------------
@@ -94,13 +82,38 @@ PROJECT_PATH = Path(__file__).resolve().parent.parent
 LOG_DIRECTORY = (
     PROJECT_PATH / "logs"
 )
+DEFAULT_CONFIG_PATH = PROJECT_PATH / "config" / "config.yaml"
+
+
+def load_config(path: str | Path = "config/config.yaml") -> Config:
+    config_path = Path(path)
+
+    if not config_path.is_file():
+        candidate = PROJECT_PATH / config_path
+        if candidate.is_file():
+            config_path = candidate
+        elif DEFAULT_CONFIG_PATH.is_file():
+            config_path = DEFAULT_CONFIG_PATH
+        else:
+            ruta_config = Path(__file__).resolve().parent / "config.yaml"
+            if ruta_config.is_file():
+                config_path = ruta_config
+
+    with open(config_path, "r", encoding="utf-8") as f:
+        raw = yaml.safe_load(f)
+
+    return Config(**raw)
+
+
+CONFIG = load_config()
+
 
 # -----------------------------------------------------------------------------
 # LOGGING
 # -----------------------------------------------------------------------------
 LOG_LEVEL = os.getenv(
     "LOG_LEVEL",
-    "INFO"
+    "DEBUG"
 )
 
 LOG_FORMAT = (
