@@ -7498,6 +7498,9 @@ Docente: Maria Constanza Torres Madronero
 <p align="center" style="font-size:0.68em; color:#777; margin:4px 0 0 0;">
 <i>Nota: el tema del navegador puede afectar la visualización de la presentación.</i>
 </p>
+<aside class="notes">
+Mensaje clave a decir: "Buenos días a todos. Es un gusto presentarles nuestro trabajo final para el curso de Optimización e Inteligencia Artificial de la Maestría en Ingeniería - Analítica. En este proyecto abordamos un problema real de la PTAR Bello del Grupo EPM: la detección temprana de anomalías en transmisores de nivel, un sistema crítico para la eficiencia energética y operativa de la estación de bombeo."
+</aside>
 </div>
 </div>
 </div>
@@ -7524,6 +7527,9 @@ Docente: Maria Constanza Torres Madronero
 <li><strong>Tarea de ML:</strong> Clasificación multiclase para evaluar el estado en tres categorías: sano, en deriva o fallo duro.</li>
 <li><strong>Meta de optimización:</strong> Minimizar los falsos negativos, priorizando detectar el "fallo duro". Es preferible tener una falsa alarma (deriva clasificada sobre ruido normal) a que el sistema siga confiando en una lectura corrupta.</li>
 </ul>
+<aside class="notes">
+Mensaje clave a decir: "El contexto de nuestro proyecto se enmarca en la Plataforma de Optimización Energética para la PTAR Bello. Actualmente, los transmisores de nivel del foso de bombeo dependen de alarmas reactivas. Si un sensor falla y no se detecta de inmediato, las bombas operan mal, gastando energía innecesaria o poniendo en riesgo los niveles operativos de la planta. Por ello, nuestro objetivo analítico es desarrollar un clasificador multiclase que detecte de forma temprana estados de 'deriva' o 'fallo duro'. Para el negocio, es vital minimizar los falsos negativos del fallo duro, ya que operativamente preferimos lidiar con una falsa alarma a seguir tomando decisiones con datos corruptos."
+</aside>
 </div>
 </div>
 </div>
@@ -7555,6 +7561,9 @@ Docente: Maria Constanza Torres Madronero
 <li><strong>Desbalance de clases:</strong> La clase "sano" domina ampliamente frente a los eventos de deriva y fallo duro, que son raros.</li>
 <li><strong>Sesgo sintético:</strong> Al no existir una bitácora real de fallas integrada, el modelo requerirá re-entrenamiento con datos reales antes de pasar a producción.</li>
 </ul>
+<aside class="notes">
+Mensaje clave a decir: "Pasando a los datos, trabajamos con un conjunto sintético extraído de un simulador de la operación. Nos centramos en extraer características basadas en el residual o diferencia entre ambos transmisores, calculando también su media móvil y pendiente en el tiempo para capturar el comportamiento dinámico. Nuestra meta es clasificar el estado en 'sano', 'deriva' o 'fallo duro'. Debemos tener presentes dos grandes retos analíticos aquí: un fuerte desbalance de clases, porque naturalmente los fallos son eventos anómalos y poco frecuentes, y un sesgo sintético que hace estrictamente necesario un reentrenamiento con datos históricos reales antes de llevar este modelo a producción."
+</aside>
 </div>
 </div>
 </div>
@@ -7577,6 +7586,9 @@ Para maximizar el rendimiento y controlar el sobreajuste (overfitting), se compa
 <li><strong>RandomizedSearchCV:</strong> Búsqueda estocástica iterativa (excelente balance entre tiempo de procesamiento y convergencia).</li>
 <li><strong>BayesSearchCV:</strong> Optimización probabilística que utiliza los resultados anteriores para decidir cuál hiperparámetro evaluar a continuación, logrando eficiencia en espacios de búsqueda complejos.</li>
 </ul>
+<aside class="notes">
+Mensaje clave a decir: "Para nuestra estrategia de modelado elegimos un Random Forest por su capacidad para manejar relaciones no lineales y por ser interpretable. Un punto crítico de nuestra metodología fue cómo dividimos los datos: en lugar del clásico particionamiento aleatorio, usamos un corte temporal por episodios para evitar la fuga de información (data leakage) y asegurar que el modelo se enfrente a eventos futuros reales. Para ajustar el algoritmo, comparamos tres técnicas de optimización de hiperparámetros: GridSearchCV, RandomizedSearchCV y BayesSearchCV, buscando el mejor balance entre precisión predictiva y costo computacional."
+</aside>
 </div>
 </div>
 </div>
@@ -7594,6 +7606,51 @@ Para maximizar el rendimiento y controlar el sobreajuste (overfitting), se compa
 <blockquote>
 <p><strong>Nota:</strong> Las tres estrategias de búsqueda convergieron a rendimientos idénticos (fluctuando entre 0.94 y 1.00 en los distintos pliegues). Esto confirma que, para este conjunto de datos, la elección del optimizador no mejora la estabilidad predictiva, convirtiendo al <strong>tiempo de ejecución</strong> en el único criterio de desempate técnico.</p>
 </blockquote>
+<aside class="notes">
+Mensaje clave a decir: "Para evaluar la estabilidad predictiva, analizamos los resultados de la validación cruzada. Como pueden observar en los boxplots, independientemente de la estrategia de búsqueda que utilizamos, los tres enfoques convergieron a distribuciones de rendimiento casi idénticas en los distintos pliegues, fluctuando entre 0.94 y el 100% de exactitud. La conclusión operativa de esta gráfica es que, como todos alcanzan la misma estabilidad para este set de datos, el único criterio técnico para desempatar y elegir la mejor estrategia será su tiempo de ejecución o eficiencia computacional."
+</aside>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=aeb9d370b7f9a4ea">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Exploraci%C3%B3n-Param%C3%A9trica:-B%C3%BAsqueda-en-Cuadr%C3%ADcula">Exploración Paramétrica: Búsqueda en Cuadrícula<a class="anchor-link" href="#Exploraci%C3%B3n-Param%C3%A9trica:-B%C3%BAsqueda-en-Cuadr%C3%ADcula">¶</a></h2><blockquote>
+<p><strong>GridSearchCV:</strong> Exploración exhaustiva pero computacionalmente costosa en zonas subóptimas.</p>
+</blockquote>
+<iframe height="550px" src="../reports/figures/coordenadas_paralelas_GridSearchCV.html" style="border:none;" width="100%"></iframe>
+<div style="background-color: #f8f9fa; border-left: 4px solid #CC00FF; padding: 10px; margin: 10px 0;">
+<b>GridSearchCV:</b> Convergencia eficiente hacia el mejor modelo.<br/>
+<span style="color:#CC00FF; font-weight:bold;">Mejor Modelo Encontrado:</span> <i>n_estimators = 30, max_depth = 10, min_samples_leaf = 1, min_samples_split = 2, criterion = 'gini'</i>
+</div>
+<aside class="notes">
+Mensaje clave a decir: "Comenzamos con una búsqueda en cuadrícula tradicional. Como se observa en la densidad de las líneas, el algoritmo evalúa todas las combinaciones posibles de manera rígida. Aunque explora todo el espacio, desperdicia mucho esfuerzo computacional en regiones de bajo rendimiento (las líneas de color turquesa oscuro)."
+</aside>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=edec6c2b96c8dac7">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Exploraci%C3%B3n-Param%C3%A9trica:-B%C3%BAsqueda-Aleatoria">Exploración Paramétrica: Búsqueda Aleatoria<a class="anchor-link" href="#Exploraci%C3%B3n-Param%C3%A9trica:-B%C3%BAsqueda-Aleatoria">¶</a></h2><blockquote>
+<p><strong>RandomizedSearchCV:</strong> Mayor eficiencia computacional, pero exploración no sistemática.</p>
+</blockquote>
+<iframe height="550px" src="../reports/figures/coordenadas_paralelas_RandomizedSearchCV.html" style="border:none;" width="100%"></iframe>
+<div style="background-color: #f8f9fa; border-left: 4px solid #CC00FF; padding: 10px; margin: 10px 0;">
+<b>RandomizedSearchCV:</b> Convergencia eficiente hacia el mejor modelo.<br/>
+<span style="color:#CC00FF; font-weight:bold;">Mejor Modelo Encontrado:</span> <i>n_estimators = 110, max_depth = 10, min_samples_leaf = 2, min_samples_split = 2, criterion = 'entropy'</i>
+</div>
+<aside class="notes">
+Mensaje clave a decir: "Para reducir el costo computacional, contrastamos con una búsqueda aleatoria. Visualmente el patrón es mucho más disperso. Logra encontrar modelos con buen rendimiento (tonos rosados) con menos iteraciones, pero deja vacíos en el espacio de hiperparámetros por su naturaleza azarosa."
+</aside>
 </div>
 </div>
 </div>
@@ -7606,6 +7663,13 @@ Para maximizar el rendimiento y controlar el sobreajuste (overfitting), se compa
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Exploraci%C3%B3n-Param%C3%A9trica:-Coordenadas-Paralelas">Exploración Paramétrica: Coordenadas Paralelas<a class="anchor-link" href="#Exploraci%C3%B3n-Param%C3%A9trica:-Coordenadas-Paralelas">¶</a></h2><p>Análisis interactivo de las combinaciones de hiperparámetros que conducen consistentemente a las mejores exactitudes (<em>Accuracy</em>) durante el proceso de optimización.</p>
 <iframe height="550px" src="../reports/figures/coordenadas_paralelas_BayesSearchCV.html" style="border:none;" width="100%"></iframe>
+<div style="background-color: #f8f9fa; border-left: 4px solid #CC00FF; padding: 10px; margin: 10px 0;">
+<b>BayesSearchCV:</b> Convergencia eficiente hacia el mejor modelo.<br/>
+<span style="color:#CC00FF; font-weight:bold;">🏆 Mejor Modelo Encontrado:</span> <i>n_estimators = 130, max_depth = 17, min_samples_leaf = 2, min_samples_split = 3, criterion = 'gini'</i>
+</div>
+<aside class="notes">
+Mensaje clave a decir: "Finalmente, implementamos la optimización Bayesiana. Noten la fuerte concentración de líneas rosadas apuntando hacia los valores más altos del mean_test_score. El modelo probabilístico aprendió del historial de evaluaciones y dirigió inteligentemente las pruebas hacia la región de hiperparámetros más prometedora, encontrando el óptimo de manera eficiente."
+</aside>
 </div>
 </div>
 </div>
@@ -7661,6 +7725,9 @@ Para maximizar el rendimiento y controlar el sobreajuste (overfitting), se compa
 <br/>
 <p><strong>Hallazgo Crítico del Negocio:</strong>
 Tal como se definió en el objetivo de optimización, el error más costoso es clasificar un fallo duro como "sano". Los resultados demuestran que el modelo basado <strong>únicamente en el residual matemático</strong> es excelente para detectar derivas, pero presenta debilidades (ceguera analítica) ante un transmisor que colapsa emitiendo valores numéricamente plausibles.</p>
+<aside class="notes">
+Mensaje clave a decir: "En esta tabla consolidamos el desempeño de nuestros enfoques. Como adelantamos en los boxplots, todos alcanzan una exactitud global del 93.53%, pero BayesSearch y RandomSearch lo hacen en una fracción del tiempo de GridSearch. Sin embargo, aquí emerge nuestro hallazgo crítico de negocio: el Recall para la clase 'Fallo Duro' es del 0% en todos los escenarios. Esto nos indica que un modelo alimentado únicamente por el residual matemático es excelente para detectar desviaciones graduales, pero sufre de una ceguera analítica total cuando el sensor colapsa pero sigue enviando un número creíble."
+</aside>
 </div>
 </div>
 </div>
@@ -7680,6 +7747,9 @@ Tal como se definió en el objetivo de optimización, el error más costoso es c
 <li><strong>Diagonal Principal (Éxito):</strong> El modelo logra clasificar correctamente la gran mayoría de los estados "sanos" y eventos de "deriva".</li>
 <li><strong>Falsos Negativos (El Riesgo):</strong> La fila inferior demuestra que los eventos de <strong>fallo duro</strong> son clasificados erróneamente por el modelo (como sanos o deriva), confirmando matemáticamente el 0% de Recall obtenido.</li>
 </ul>
+<aside class="notes">
+Mensaje clave a decir: "Para visualizar gráficamente este problema, observemos la matriz de confusión de nuestro mejor modelo. En la diagonal principal vemos un excelente desempeño para discriminar estados sanos y eventos de deriva. Sin embargo, el verdadero foco de riesgo está en la fila inferior: los 12 eventos reales de 'fallo duro' fueron clasificados erróneamente como sanos por nuestro modelo. Esto ilustra claramente el 0% de Recall del que hablábamos y nos advierte del peligro operativo, ya que el sistema actual seguiría confiando ciegamente en un sensor colapsado."
+</aside>
 </div>
 </div>
 </div>
@@ -7699,6 +7769,9 @@ Tal como se definió en el objetivo de optimización, el error más costoso es c
 <li><strong>Deriva (Naranja):</strong> El diferencial entre sensores crece de forma progresiva. El modelo capta la tendencia (pendiente y medias móviles) y la clasifica bien.</li>
 <li><strong>Fallo Duro (Rojo):</strong> Un sensor colapsa pero sigue reportando un valor dentro de un rango numéricamente posible. Al no arrojar un "NaN" ni disparar bruscamente la diferencia matemática, <strong>el modelo basado solo en el residual es incapaz de discriminarlo del ruido regular del foso.</strong></li>
 </ul>
+<aside class="notes">
+Mensaje clave a decir: "Para entender por qué el modelo comete este grave error, debemos mirar el comportamiento físico de las señales en el tiempo. Durante una deriva, que vemos en los puntos naranjas, la diferencia entre sensores crece de forma progresiva y el modelo capta esa tendencia perfectamente. Pero en un fallo duro, en rojo, el sensor colapsa reportando un valor que aún es numéricamente posible. Al no disparar un 'NaN' o una diferencia matemática abrupta, el modelo que depende solo del residual es incapaz de discriminar este fallo del ruido normal del pozo, explicando así nuestra ceguera analítica."
+</aside>
 </div>
 </div>
 </div>
@@ -7727,6 +7800,9 @@ Tal como se definió en el objetivo de optimización, el error más costoso es c
 <li><strong>Re-entrenamiento requerido:</strong> Dada la naturaleza sintética de los datos utilizados (provenientes del simulador), el modelo actualmente no está certificado para producción.</li>
 <li><strong>Próximo paso:</strong> Se debe ejecutar un re-entrenamiento validado con datos reales provenientes del historiador de la planta antes de su despliegue definitivo.</li>
 </ul>
+<aside class="notes">
+Mensaje clave a decir: "Para concluir, este proyecto nos deja lecciones clave. Primero, validamos que el uso de Machine Learning sobre el residual es un enfoque viable y superior a los umbrales fijos para detectar derivas tempranas. Segundo, identificamos una limitación estructural crítica: la ceguera analítica ante fallos duros si solo usamos diferencias matemáticas. Por ello, nuestra recomendación principal a nivel de arquitectura de datos es integrar señales explícitas de 'salud' o disponibilidad del sensor directamente desde el DCS de la planta. Finalmente, la ruta hacia producción exige un reentrenamiento del algoritmo con datos históricos reales, dado el origen sintético de nuestro set actual. Muchas gracias por su atención."
+</aside>
 </div>
 </div>
 </div>
