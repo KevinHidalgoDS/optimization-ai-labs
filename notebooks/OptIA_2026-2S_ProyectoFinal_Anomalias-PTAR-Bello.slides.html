@@ -7587,12 +7587,12 @@ Para maximizar el rendimiento y controlar el sobreajuste (overfitting), se compa
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Estabilidad-de-Modelos:-Validaci%C3%B3n-Cruzada-(K-Folds)">Estabilidad de Modelos: Validación Cruzada (K-Folds)<a class="anchor-link" href="#Estabilidad-de-Modelos:-Validaci%C3%B3n-Cruzada-(K-Folds)">¶</a></h2><p>La evaluación de los modelos no se limitó al rendimiento máximo, sino a su <strong>estabilidad y baja varianza</strong> a lo largo de los diferentes pliegues temporales de evaluación.</p>
+<h2 id="Estabilidad-de-Modelos:-Validaci%C3%B3n-Cruzada-(K-Folds)">Estabilidad de Modelos: Validación Cruzada (K-Folds)<a class="anchor-link" href="#Estabilidad-de-Modelos:-Validaci%C3%B3n-Cruzada-(K-Folds)">¶</a></h2><p>La evaluación de los modelos en los diferentes pliegues temporales (folds) revela el comportamiento del algoritmo ante distintos episodios operativos.</p>
 <div align="center">
 <img alt="Boxplots Validación Cruzada" src="../reports/figures/boxplots_cv.png" width="85%"/>
 </div>
 <blockquote>
-<p><strong>Nota:</strong> Una distribución estrecha (menor dispersión) indica un modelo más robusto frente a variaciones en las condiciones operativas de la estación de bombeo.</p>
+<p><strong>Nota:</strong> Las tres estrategias de búsqueda convergieron a rendimientos idénticos (fluctuando entre 0.94 y 1.00 en los distintos pliegues). Esto confirma que, para este conjunto de datos, la elección del optimizador no mejora la estabilidad predictiva, convirtiendo al <strong>tiempo de ejecución</strong> en el único criterio de desempate técnico.</p>
 </blockquote>
 </div>
 </div>
